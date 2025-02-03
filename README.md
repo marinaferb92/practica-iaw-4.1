@@ -75,6 +75,10 @@ Crear un script para crear la infraestructura de la práctica propuesta por el p
 #!/bin/bash
 set -x
 
+# Deshabilitamos la paginación de la salida de los comandos de AWS CLI
+# Referencia: https://docs.aws.amazon.com/es_es/cli/latest/userguide/cliv2-migration.html#cliv2-migration-output-pager
+export AWS_PAGER=""
+
 # Crear el grupo de seguridad backend-sg
 aws ec2 create-security-group \
     --group-name backend-sg \
@@ -99,7 +103,7 @@ aws ec2 run-instances \
     --instance-type t2.micro \
     --key-name vockey \
     --security-groups backend-sg \
-    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=backend}]"
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=backend-01}]"
 ````
 
 
@@ -107,6 +111,10 @@ Crear un script para eliminar la infraestructura de la práctica propuesta por e
 ````
 #!/bin/bash
 set -x
+
+# Deshabilitamos la paginación de la salida de los comandos de AWS CLI
+# Referencia: https://docs.aws.amazon.com/es_es/cli/latest/userguide/cliv2-migration.html#cliv2-migration-output-pager
+export AWS_PAGER=""
 
 # Eliminar la instancia EC2
 aws ec2 terminate-instances \
@@ -133,3 +141,16 @@ En la documentación oficial puede encontrar más información sobre cómo ejecu
 1.19.5 Ejercicio 5
 Escriba un script de bash que muestre el nombre de todas instancias EC2 que tiene en ejecución junto a su dirección IP pública.
 
+````
+#!/bin/bash
+set -x
+
+# Deshabilitamos la paginación de la salida de los comandos de AWS CLI
+# Referencia: https://docs.aws.amazon.com/es_es/cli/latest/userguide/cliv2-migration.html#cliv2-migration-output-pager
+export AWS_PAGER=""
+
+# Obtener la lista de instancias en ejecuci�n
+aws ec2 describe-instances \
+    --query "Reservations[*].Instances[*].[Tags[?Key=='Name'].Value|[0],PublicIpAddress]" \
+    --output text
+````
