@@ -71,10 +71,51 @@ aws ec2 run-instances `
 1.19.3 Ejercicio 3
 
 Crear un script para crear la infraestructura de la práctica propuesta por el profesor.
+````
+#!/bin/bash
+set -x
+
+# Crear el grupo de seguridad backend-sg
+aws ec2 create-security-group \
+    --group-name backend-sg \
+    --description "Reglas para el backend"
+
+# Añadir reglas al grupo de seguridad
+aws ec2 authorize-security-group-ingress \
+    --group-name backend-sg \
+    --protocol tcp \
+    --port 22 \
+    --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress \
+    --group-name backend-sg \
+    --protocol tcp \
+    --port 3306 \
+    --cidr 0.0.0.0/0
+
+# Crear la instancia EC2 para el backend
+aws ec2 run-instances \
+    --image-id ami-08e637cea2f053dfa \
+    --count 1 `
+    --instance-type t2.micro \
+    --key-name vockey \
+    --security-groups backend-sg \
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=backend}]"
+````
+
 
 Crear un script para eliminar la infraestructura de la práctica propuesta por el profesor.
+````
+#!/bin/bash
+set -x
 
+# Eliminar la instancia EC2
+aws ec2 terminate-instances \
+    --instance-ids $(aws ec2 describe-instances --query "Reservations[*].Instances[*].InstanceId" --output text)
 
+# Eliminar el grupo de seguridad
+aws ec2 delete-security-group \
+    --group-name backend-sg
+````
 
 1.19.4 Ejercicio 4
 Modifique los scripts del repositorio de ejemplo:
