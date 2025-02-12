@@ -72,6 +72,8 @@ aws ec2 run-instances `
 ![image](https://github.com/user-attachments/assets/7b43b4a5-55f8-442e-98bf-ae322125dc4c)
 
 
+
+
 # Ejercicio 3
 
 ### Crear un script para crear la infraestructura de la práctica propuesta por el profesor.
@@ -89,6 +91,9 @@ y Crearemos 4 grupos de seguridad 1 para los frontales abriendo los puertos 80 y
 ## Crear un script para eliminar la infraestructura de la práctica propuesta por el profesor.
 [ejercicio3-2.sh
 ](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio3-2.sh)
+
+
+
 
 
 # Ejercicio 4
@@ -122,6 +127,10 @@ y lo añadimos en la página de creacion de instancias al final de cada una
 
 [create_instances.sh](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio4/04-create_instances.sh)
 
+
+
+
+
 # Ejercicio 5
 ### Escriba un script de bash que muestre el nombre de todas instancias EC2 que tiene en ejecución junto a su dirección IP pública.
 
@@ -137,6 +146,9 @@ aws ec2 describe-instances \
 4. PublicIpAddress: Obtiene la dirección IP pública de cada instancia
 
 [ejercicio5.sh](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio5.sh)
+
+
+
 
 
 # Ejercicio 6
