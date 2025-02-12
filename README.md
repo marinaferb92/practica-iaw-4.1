@@ -75,6 +75,13 @@ aws ec2 run-instances `
 # Ejercicio 3
 
 Crear un script para crear la infraestructura de la práctica propuesta por el profesor.
+Seguimos la misma estructura que en el ejercicio anterior, añadiendo las maquinas frontend 1, frontend2, backend, loadbalancer y servidor nfs
+
+eolegiremos la ultima vrsion de AMI de ubuntu server 
+
+![OXPlxD9WsD](https://github.com/user-attachments/assets/39d7ccb5-7c64-4778-90ed-fa69a5afca7d)
+
+y Crearemos 4 grupos de seguridad 1 para los frontales abriendo los puertos 80 y 20 tcp, uno para el balanceador con los mismos, otro para el backend con el puerto 3306 abierto para la base de datos y el 22, y otro para el servidor NFS con el puerto 2049 abierto oara el acceso NFS 
 
 [ejercicio3-1.sh](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio3-1.sh)
 
