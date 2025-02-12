@@ -84,7 +84,8 @@ aws ec2 authorize-security-group-ingress \
 
 # Lanzar Balanceador de carga 
 aws ec2 run-instances \
-    --image-id ami-08e637cea2f053dfa \  
+    --image-id ami-04b4f1a9cf54c11d0 \ 
+    --instance-type t2.small \
     --count 1 \
     --key-name vockey \
     --security-groups lb-sg \
@@ -92,8 +93,8 @@ aws ec2 run-instances \
 
 # Lanzar Front-end Web 1
 aws ec2 run-instances \
-    --image-id ami-08e637cea2f053dfa \ 
-    --instance-type t2.micro \
+    --image-id ami-04b4f1a9cf54c11d0 \ 
+    --instance-type t2.small \
     --count 1 \
     --key-name vockey \
     --security-groups frontend-sg \
@@ -101,8 +102,8 @@ aws ec2 run-instances \
 
 # Lanzar Front-end Web 2
 aws ec2 run-instances \
-    --image-id ami-08e637cea2f053dfa \  
-    --instance-type t2.micro \
+    --image-id ami-04b4f1a9cf54c11d0 \  
+    --instance-type t2.small \
     --count 1 \
     --key-name vockey \
     --security-groups frontend-sg \
@@ -110,8 +111,8 @@ aws ec2 run-instances \
 
 # Lanzar Servidor NFS
 aws ec2 run-instances \
-    --image-id ami-08e637cea2f053dfa \  
-    --instance-type t2.micro \
+    --image-id ami-04b4f1a9cf54c11d0 \  
+    --instance-type t2.small \
     --count 1 \
     --key-name vockey \
     --security-groups nfs-sg \
@@ -119,8 +120,8 @@ aws ec2 run-instances \
 
 # Lanzar Backend
 aws ec2 run-instances \
-    --image-id ami-08e637cea2f053dfa \ 
-    --instance-type t2.micro \
+    --image-id ami-04b4f1a9cf54c11d0 \ 
+    --instance-type t2.small \
     --count 1 \
     --key-name vockey \
     --security-groups back-sg \
