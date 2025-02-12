@@ -71,84 +71,44 @@ aws ec2 run-instances `
 # Ejercicio 3
 
 Crear un script para crear la infraestructura de la práctica propuesta por el profesor.
-````
-#!/bin/bash
-set -x
-
-# Deshabilitamos la paginación de la salida de los comandos de AWS CLI
-# Referencia: https://docs.aws.amazon.com/es_es/cli/latest/userguide/cliv2-migration.html#cliv2-migration-output-pager
-export AWS_PAGER=""
-
-# Crear el grupo de seguridad backend-sg
-aws ec2 create-security-group \
-    --group-name backend-sg \
-    --description "Reglas para el backend"
-
-# Añadir reglas al grupo de seguridad
-aws ec2 authorize-security-group-ingress \
-    --group-name backend-sg \
-    --protocol tcp \
-    --port 22 \
-    --cidr 0.0.0.0/0
-aws ec2 authorize-security-group-ingress \
-    --group-name backend-sg \
-    --protocol tcp \
-    --port 3306 \
-    --cidr 0.0.0.0/0
-
-# Crear la instancia EC2 para el backend
-aws ec2 run-instances \
-    --image-id ami-08e637cea2f053dfa \
-    --count 1 `
-    --instance-type t2.micro \
-    --key-name vockey \
-    --security-groups backend-sg \
-    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=backend-01}]"
-````
-
-
+[ejercicio3-1.sh](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio3-1.sh)
 Crear un script para eliminar la infraestructura de la práctica propuesta por el profesor.
-````
-#!/bin/bash
-set -x
+[ejercicio3-2.sh
+](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio3-2.sh)
 
-# Deshabilitamos la paginación de la salida de los comandos de AWS CLI
-# Referencia: https://docs.aws.amazon.com/es_es/cli/latest/userguide/cliv2-migration.html#cliv2-migration-output-pager
-export AWS_PAGER=""
-
-# Eliminar la instancia EC2
-aws ec2 terminate-instances \
-    --instance-ids $(aws ec2 describe-instances --query "Reservations[*].Instances[*].InstanceId" --output text)
-
-# Eliminar el grupo de seguridad
-aws ec2 delete-security-group \
-    --group-name backend-sg
-````
 
 # Ejercicio 4
 Modifique los scripts del repositorio de ejemplo:
 
-https://github.com/josejuansanchez/practica-aws-cli
+`https://github.com/josejuansanchez/practica-aws-cli`
 
 para que utilicen la AMI de la última versión de Ubuntu Server.
 
 También tendrá que modificar los scripts para que se ejecute el siguiente comando en las instancias durante el inicio.
 
-$ sudo apt update && sudo apt upgrade -y
+`$ sudo apt update && sudo apt upgrade -y`
 
 En la documentación oficial puede encontrar más información sobre cómo ejecutar comandos en una instancia durante el inicio.
 
 entramos en AWS y vemos que la AMI de la última versión de Ubuntu Server es la siguiente
 
+![OXPlxD9WsD](https://github.com/user-attachments/assets/39d7ccb5-7c64-4778-90ed-fa69a5afca7d)
 
+lo añadimos en la pagina de variables del script 
+
+![image](https://github.com/user-attachments/assets/6e3a86ef-6e60-4a4c-b1c5-e59147582496)
+[.env](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio4/.env)
 y para ejecutar el comando $ sudo apt update && sudo apt upgrade -y añadimos la siguiente linea
 
 ````--user-data "sudo apt update && sudo apt upgrade -y"````
+y lo añadimos en la página de creacion de instancias al final de cada una 
 
+![image](https://github.com/user-attachments/assets/bef53619-fb5a-49c8-96d5-a54b2109e0cd)
+[create_instances.sh](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio4/04-create_instances.sh)
 
 # Ejercicio 5
 Escriba un script de bash que muestre el nombre de todas instancias EC2 que tiene en ejecución junto a su dirección IP pública.
-
+[ejercicio5.sh](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio5.sh)
 
 
 # Ejercicio 6
@@ -156,3 +116,5 @@ Modifique los scripts del repositorio de ejemplo:
 
 https://github.com/josejuansanchez/practica-aws-cli
 para crear la infraestructura necesaria de la práctica propuesta por el profesor.
+
+[ejercicio6](https://github.com/marinaferb92/practica-iaw-4.1/tree/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio6)
