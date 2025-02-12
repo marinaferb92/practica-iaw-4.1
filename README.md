@@ -140,10 +140,10 @@ aws ec2 describe-instances \
     --query "Reservations[*].Instances[*].[Tags[?Key=='Name'].Value | [0], PublicIpAddress]" \
     --output text
 ````
-1. Reservations[*]: Obtiene todas las "reservas", es decir, las colecciones de las instancias EC2.
-2. Instances[*]: Dentro de cada reserva, obtenemos todas las instancias.
-3. Tags[?Key=='Name'].Value | [0]: Obtenemos el valor de la etiqueta "Name" y si la etiqueta "Name" está presente, se extrae su valor Con ek uso de [0] aseguramos que se seleccione solo el primer valor de la lista, en caso de que haya múltiples etiquetas "Name".
-4. PublicIpAddress: Obtiene la dirección IP pública de cada instancia
+1. **Reservations[*]:** Obtiene todas las "reservas", es decir, las colecciones de las instancias EC2.
+2. **Instances[*]:** Dentro de cada reserva, obtenemos todas las instancias.
+3. **Tags[?Key=='Name'].Value | [0]:** Obtenemos el valor de la etiqueta "Name" y si la etiqueta "Name" está presente, se extrae su valor Con ek uso de [0] aseguramos que se seleccione solo el primer valor de la lista, en caso de que haya múltiples etiquetas "Name".
+4. **PublicIpAddress:** Obtiene la dirección IP pública de cada instancia
 
 [ejercicio5.sh](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio5.sh)
 
