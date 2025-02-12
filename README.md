@@ -1,13 +1,13 @@
 # practica-iaw-4.1
 
 # Ejercicio 1
-## Crea un grupo de seguridad para las máquinas del Backend con el nombre backend-sg.
+### Crea un grupo de seguridad para las máquinas del Backend con el nombre backend-sg.
 
-## Añada las siguientes reglas al grupo de seguridad:
+### Añada las siguientes reglas al grupo de seguridad:
 
-## Acceso SSH (puerto 22/TCP) desde cualquier dirección IP.
+1. Acceso SSH (puerto 22/TCP) desde cualquier dirección IP.
 
-## Acceso al puerto 3306/TCP desde cualquier dirección IP.
+2. Acceso al puerto 3306/TCP desde cualquier dirección IP.
 
 ````
 aws ec2 create-security-group `
@@ -44,19 +44,19 @@ aws ec2 authorize-security-group-ingress `
 
 
 # Ejercicio 2
-## Crea una instancia EC2 para la máquina del Backend con las siguientes características.
+### Crea una instancia EC2 para la máquina del Backend con las siguientes características.
 
-## Identificador de la AMI: ami-08e637cea2f053dfa. Esta AMI se corresponde con la imagen Red Hat Enterprise Linux 9 (HVM).
+1. Identificador de la AMI: ami-08e637cea2f053dfa. Esta AMI se corresponde con la imagen Red Hat Enterprise Linux 9 (HVM).
 
-## Número de instancias: 1
+2. Número de instancias: 1
 
-## Tipo de instancia: t2.micro
+3. Tipo de instancia: t2.micro
 
-## Clave privada: vockey
+4. Clave privada: vockey
 
-## Grupo de seguridad: backend-sg
+5. Grupo de seguridad: backend-sg
 
-## Nombre de la instancia: backend
+6. Nombre de la instancia: backend
 
 ````
 aws ec2 run-instances `
@@ -74,10 +74,11 @@ aws ec2 run-instances `
 
 # Ejercicio 3
 
-## Crear un script para crear la infraestructura de la práctica propuesta por el profesor.
-## Seguimos la misma estructura que en el ejercicio anterior, añadiendo las maquinas frontend 1, frontend2, backend, loadbalancer ##  servidor nfs
+### Crear un script para crear la infraestructura de la práctica propuesta por el profesor.
+Seguimos la misma estructura que en el ejercicio anterior, añadiendo las maquinas frontend 1, frontend2, backend, loadbalancer 
+y servidor nfs
 
-eolegiremos la ultima vrsion de AMI de ubuntu server 
+elegiremos la ultima vrsion de AMI de ubuntu server 
 
 ![OXPlxD9WsD](https://github.com/user-attachments/assets/39d7ccb5-7c64-4778-90ed-fa69a5afca7d)
 
@@ -91,17 +92,17 @@ y Crearemos 4 grupos de seguridad 1 para los frontales abriendo los puertos 80 y
 
 
 # Ejercicio 4
-## Modifique los scripts del repositorio de ejemplo:
+### Modifique los scripts del repositorio de ejemplo:
 
 `https://github.com/josejuansanchez/practica-aws-cli`
 
-## para que utilicen la AMI de la última versión de Ubuntu Server.
+### para que utilicen la AMI de la última versión de Ubuntu Server.
 
-## También tendrá que modificar los scripts para que se ejecute el siguiente comando en las instancias durante el inicio.
+### También tendrá que modificar los scripts para que se ejecute el siguiente comando en las instancias durante el inicio.
 
 `$ sudo apt update && sudo apt upgrade -y`
 
-## En la documentación oficial puede encontrar más información sobre cómo ejecutar comandos en una instancia durante el inicio.
+### En la documentación oficial puede encontrar más información sobre cómo ejecutar comandos en una instancia durante el inicio.
 
 entramos en AWS y vemos que la AMI de la última versión de Ubuntu Server es la siguiente
 
