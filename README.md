@@ -1,6 +1,6 @@
 # practica-iaw-4.1
 
-1.19.1 Ejercicio 1
+# Ejercicio 1
 Crea un grupo de seguridad para las máquinas del Backend con el nombre backend-sg.
 
 Añada las siguientes reglas al grupo de seguridad:
@@ -40,7 +40,7 @@ aws ec2 authorize-security-group-ingress `
 
 
 
-1.19.2 Ejercicio 2
+# Ejercicio 2
 Crea una instancia EC2 para la máquina del Backend con las siguientes características.
 
 Identificador de la AMI: ami-08e637cea2f053dfa. Esta AMI se corresponde con la imagen Red Hat Enterprise Linux 9 (HVM).
@@ -68,7 +68,7 @@ aws ec2 run-instances `
 ![image](https://github.com/user-attachments/assets/e0df0bf1-39cd-41b4-8d3e-9a1aafd74443)
 
 
-1.19.3 Ejercicio 3
+# Ejercicio 3
 
 Crear un script para crear la infraestructura de la práctica propuesta por el profesor.
 ````
@@ -125,7 +125,7 @@ aws ec2 delete-security-group \
     --group-name backend-sg
 ````
 
-1.19.4 Ejercicio 4
+# Ejercicio 4
 Modifique los scripts del repositorio de ejemplo:
 
 https://github.com/josejuansanchez/practica-aws-cli
@@ -141,19 +141,18 @@ En la documentación oficial puede encontrar más información sobre cómo ejecu
 entramos en AWS y vemos que la AMI de la última versión de Ubuntu Server es la siguiente
 
 
-1.19.5 Ejercicio 5
+y para ejecutar el comando $ sudo apt update && sudo apt upgrade -y añadimos la siguiente linea
+
+````--user-data "sudo apt update && sudo apt upgrade -y"````
+
+
+# Ejercicio 5
 Escriba un script de bash que muestre el nombre de todas instancias EC2 que tiene en ejecución junto a su dirección IP pública.
 
-````
-#!/bin/bash
-set -x
 
-# Deshabilitamos la paginación de la salida de los comandos de AWS CLI
-# Referencia: https://docs.aws.amazon.com/es_es/cli/latest/userguide/cliv2-migration.html#cliv2-migration-output-pager
-export AWS_PAGER=""
 
-# Obtener la lista de instancias en ejecuci�n
-aws ec2 describe-instances \
-    --query "Reservations[*].Instances[*].[Tags[?Key=='Name'].Value|[0],PublicIpAddress]" \
-    --output text
-````
+# Ejercicio 6
+Modifique los scripts del repositorio de ejemplo:
+
+https://github.com/josejuansanchez/practica-aws-cli
+para crear la infraestructura necesaria de la práctica propuesta por el profesor.
