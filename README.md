@@ -16,6 +16,8 @@ aws ec2 create-security-group `
 ````
 ![image](https://github.com/user-attachments/assets/2c0b2764-4870-4862-83d1-e41efbf145e4)
 
+![image](https://github.com/user-attachments/assets/dd746d36-e29b-4d3e-8d57-aefbb1460561)
+
 
 ````
  # Creamos una regla de accesso SSH
@@ -26,6 +28,7 @@ aws ec2 authorize-security-group-ingress `
     --cidr 0.0.0.0/0
 ````
 ![image](https://github.com/user-attachments/assets/541748b6-2a90-458c-93ff-c6c79ecd54eb)
+
 
 ````
 # Creamos una regla de accesso HTTP
@@ -65,7 +68,8 @@ aws ec2 run-instances `
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=backend}]"
 ````
 
-![image](https://github.com/user-attachments/assets/e0df0bf1-39cd-41b4-8d3e-9a1aafd74443)
+![image](https://github.com/user-attachments/assets/480e8968-b1e6-4adf-bc96-36dcb800f783)
+![image](https://github.com/user-attachments/assets/7b43b4a5-55f8-442e-98bf-ae322125dc4c)
 
 
 # Ejercicio 3
