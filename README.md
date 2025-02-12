@@ -75,7 +75,9 @@ aws ec2 run-instances `
 # Ejercicio 3
 
 Crear un script para crear la infraestructura de la práctica propuesta por el profesor.
+
 [ejercicio3-1.sh](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio3-1.sh)
+
 Crear un script para eliminar la infraestructura de la práctica propuesta por el profesor.
 [ejercicio3-2.sh
 ](https://github.com/marinaferb92/practica-iaw-4.1/blob/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio3-2.sh)
