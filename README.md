@@ -118,3 +118,16 @@ https://github.com/josejuansanchez/practica-aws-cli
 para crear la infraestructura necesaria de la práctica propuesta por el profesor.
 
 [ejercicio6](https://github.com/marinaferb92/practica-iaw-4.1/tree/a13c6ded80765bd52f2cb4efeb29d4f63b50a080/ejercicio6)
+
+En el `.env` añadimos las variables de las instancias que faltan 
+![image](https://github.com/user-attachments/assets/ecc60dab-1633-43eb-8b75-9dd575ae6863)
+
+En añadimos `03-create_security_groups.sh` los grupos de seguridad y las reglas de cada grupo que falta 
+![image](https://github.com/user-attachments/assets/db014bd6-6258-4c1e-aa28-553f711096ab)
+[03-create_security_groups.sh](https://github.com/marinaferb92/practica-iaw-4.1/blob/26d65de41ead5183af75880ac32322e654cd85cb/ejercicio6/03-create_security_groups.sh)
+En `04-create_instances.sh`hacemos lo mismo con las instancias que faltan 
+![image](https://github.com/user-attachments/assets/2d4a2549-c275-45b6-a2d7-dfe334192856)
+[04-create_instances.sh](https://github.com/marinaferb92/practica-iaw-4.1/blob/26d65de41ead5183af75880ac32322e654cd85cb/ejercicio6/04-create_instances.sh)
+y en `05-create_elastic_ip.sh`tambien añadimos las maquinas que nos faltarian para añadirles una Ip elastica
+![image](https://github.com/user-attachments/assets/cd5791ac-a8a6-4ec6-8d4b-2ac1c9c41eee)
+[`05-create_elastic_ip.sh](https://github.com/marinaferb92/practica-iaw-4.1/blob/26d65de41ead5183af75880ac32322e654cd85cb/ejercicio6/05-create_elastic_ip.sh)
