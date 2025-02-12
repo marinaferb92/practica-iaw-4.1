@@ -138,6 +138,9 @@ $ sudo apt update && sudo apt upgrade -y
 
 En la documentación oficial puede encontrar más información sobre cómo ejecutar comandos en una instancia durante el inicio.
 
+entramos en AWS y vemos que la AMI de la última versión de Ubuntu Server es la siguiente
+
+
 1.19.5 Ejercicio 5
 Escriba un script de bash que muestre el nombre de todas instancias EC2 que tiene en ejecución junto a su dirección IP pública.
 
